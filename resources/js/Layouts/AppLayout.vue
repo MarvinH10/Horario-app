@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, ref, onMounted, onUnmounted } from 'vue';
 import { Head, router } from '@inertiajs/vue3';
 import Banner from '@/Components/Banner.vue';
 import Dropdown from '@/Components/Dropdown.vue';
@@ -13,6 +13,19 @@ defineProps({
 
 const isSidebarOpen = ref(true);
 const showingNavigationDropdown = ref(false);
+const cellphonesize = ref(window.innerWidth < 768);
+
+const updateCellphoneSize = () => {
+    cellphonesize.value = window.innerWidth < 768;
+};
+
+onMounted(() => {
+    window.addEventListener('resize', updateCellphoneSize);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('resize', updateCellphoneSize);
+});
 
 const switchToTeam = (team) => {
     router.put(route('current-team.update'), {
@@ -33,16 +46,17 @@ const toggleSidebar = () => {
 
 <template>
     <div class="flex">
-        <Sidebar :isOpen="isSidebarOpen" />
+        <Sidebar :cellphonesize="cellphonesize" :isOpen="isSidebarOpen" @close="isSidebarOpen = false" />
         <div :class="{
             'flex-1 transition-all duration-300 ease-in-out': true,
-            'ml-64': isSidebarOpen
+            'ml-64': isSidebarOpen && !cellphonesize,
+            'ml-0': isSidebarOpen && cellphonesize
         }">
 
             <Head :title="title" />
 
             <Banner />
-            <div class="min-h-screen bg-gray-100">
+            <div class="min-h-screen bg-gray-100 z-1">
                 <nav class="bg-white border-b border-gray-100">
                     <!-- Primary Navigation Menu -->
                     <div class="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
