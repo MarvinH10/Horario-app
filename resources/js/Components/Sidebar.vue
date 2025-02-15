@@ -38,7 +38,7 @@ const sidebarClasses = computed(() => ({
                 <ApplicationMark />
                 <h3 class="text-lg text-gray-300">Asistencias</h3>
                 </Link>
-                <button v-if="props.cellphonesize" class="ml-auto" @click="$emit('close')">
+                <button v-if="props.cellphonesize" class="absolute ml-[190px] mb-[50px]" @click="$emit('close')">
                     <ion-icon style="color: rgb(156 163 175 / var(--tw-text-opacity, 1));" name="lock-open-outline"
                         class="w-6 h-6">
                     </ion-icon>

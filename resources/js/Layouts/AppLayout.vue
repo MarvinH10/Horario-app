@@ -45,7 +45,7 @@ const toggleSidebar = () => {
 </script>
 
 <template>
-    <div class="flex">
+    <div class="min-h-screen flex flex-col bg-gray-100 z-1">
         <Sidebar :cellphonesize="cellphonesize" :isOpen="isSidebarOpen" @close="isSidebarOpen = false" />
         <div :class="{
             'flex-1 transition-all duration-300 ease-in-out': true,
@@ -315,7 +315,7 @@ const toggleSidebar = () => {
                 </header>
 
                 <!-- Page Content -->
-                <main>
+                <main class="flex-grow">
                     <slot />
                 </main>
             </div>
