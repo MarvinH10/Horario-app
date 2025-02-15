@@ -94,18 +94,18 @@ const toggleSidebar = () => {
                                             <div class="w-60">
                                                 <!-- Team Management -->
                                                 <div class="block px-4 py-2 text-xs text-gray-400">
-                                                    Manage Team
+                                                    Gestionar equipo
                                                 </div>
 
                                                 <!-- Team Settings -->
                                                 <DropdownLink
                                                     :href="route('teams.show', $page.props.auth.user.current_team)">
-                                                    Team Settings
+                                                    Configuración del equipo
                                                 </DropdownLink>
 
                                                 <DropdownLink v-if="$page.props.jetstream.canCreateTeams"
                                                     :href="route('teams.create')">
-                                                    Create New Team
+                                                    Crear nuevo equipo
                                                 </DropdownLink>
 
                                                 <!-- Team Switcher -->
@@ -113,7 +113,7 @@ const toggleSidebar = () => {
                                                     <div class="border-t border-gray-200" />
 
                                                     <div class="block px-4 py-2 text-xs text-gray-400">
-                                                        Switch Teams
+                                                        Cambiar de equipo
                                                     </div>
 
                                                     <template v-for="team in $page.props.auth.user.all_teams"
@@ -171,11 +171,11 @@ const toggleSidebar = () => {
                                         <template #content>
                                             <!-- Account Management -->
                                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                                Manage Account
+                                                Administrar cuenta
                                             </div>
 
                                             <DropdownLink :href="route('profile.show')">
-                                                Profile
+                                                Perfil
                                             </DropdownLink>
 
                                             <DropdownLink v-if="$page.props.jetstream.hasApiFeatures"
@@ -188,7 +188,7 @@ const toggleSidebar = () => {
                                             <!-- Authentication -->
                                             <form @submit.prevent="logout">
                                                 <DropdownLink as="button">
-                                                    Log Out
+                                                    Finalizar la sesión
                                                 </DropdownLink>
                                             </form>
                                         </template>
@@ -241,7 +241,7 @@ const toggleSidebar = () => {
                             <div class="mt-3 space-y-1">
                                 <ResponsiveNavLink :href="route('profile.show')"
                                     :active="route().current('profile.show')">
-                                    Profile
+                                    Perfil
                                 </ResponsiveNavLink>
 
                                 <ResponsiveNavLink v-if="$page.props.jetstream.hasApiFeatures"
@@ -252,7 +252,7 @@ const toggleSidebar = () => {
                                 <!-- Authentication -->
                                 <form method="POST" @submit.prevent="logout">
                                     <ResponsiveNavLink as="button">
-                                        Log Out
+                                        Finalizar la sesión
                                     </ResponsiveNavLink>
                                 </form>
 
@@ -261,18 +261,18 @@ const toggleSidebar = () => {
                                     <div class="border-t border-gray-200" />
 
                                     <div class="block px-4 py-2 text-xs text-gray-400">
-                                        Manage Team
+                                        Gestionar equipo
                                     </div>
 
                                     <!-- Team Settings -->
                                     <ResponsiveNavLink :href="route('teams.show', $page.props.auth.user.current_team)"
                                         :active="route().current('teams.show')">
-                                        Team Settings
+                                        Configuración del equipo
                                     </ResponsiveNavLink>
 
                                     <ResponsiveNavLink v-if="$page.props.jetstream.canCreateTeams"
                                         :href="route('teams.create')" :active="route().current('teams.create')">
-                                        Create New Team
+                                        Crear nuevo equipo
                                     </ResponsiveNavLink>
 
                                     <!-- Team Switcher -->
@@ -280,7 +280,7 @@ const toggleSidebar = () => {
                                         <div class="border-t border-gray-200" />
 
                                         <div class="block px-4 py-2 text-xs text-gray-400">
-                                            Switch Teams
+                                            Cambiar de equipo
                                         </div>
 
                                         <template v-for="team in $page.props.auth.user.all_teams" :key="team.id">
