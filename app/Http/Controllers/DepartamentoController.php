@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Departamento;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class DepartamentoController extends Controller
 {
@@ -12,7 +13,9 @@ class DepartamentoController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Admin/Departamento/Index', [
+            'empresas' => Departamento::all(),
+        ]);
     }
 
     /**

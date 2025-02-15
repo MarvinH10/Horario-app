@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Empresa;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class EmpresaController extends Controller
 {
@@ -12,7 +13,9 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Admin/Empresa/Index', [
+            'empresas' => Empresa::all(),
+        ]);
     }
 
     /**
