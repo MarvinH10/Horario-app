@@ -14,7 +14,7 @@ class EmpresaController extends Controller
     public function index()
     {
         return Inertia::render('Admin/Empresa/Index', [
-            'empresas' => Empresa::all(),
+            'empresas' => Empresa::paginate(10),
         ]);
     }
 

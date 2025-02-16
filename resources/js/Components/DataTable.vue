@@ -29,10 +29,10 @@ const estadoColumn = computed(() => {
                     <tr v-for="(row, index) in data" :key="index"
                         class="border-b hover:bg-gray-100 transition text-[#333333]">
                         <td v-for="col in columns" :key="col" class="py-3 px-5 text-center">
-                            <template v-if="col === estadoColumn">
+                            <template v-if="estadoColumn && col === estadoColumn">
                                 <span class="px-3 py-1 rounded-full text-white text-sm font-semibold"
-                                    :class="row[col] === 'Activo' ? 'bg-green-500' : 'bg-red-500'">
-                                    {{ row[col] }}
+                                    :class="row[col] === 1 ? 'bg-green-500' : 'bg-red-500'">
+                                    {{ row[col] === 1 ? 'Activo' : 'Inactivo' }}
                                 </span>
                             </template>
                             <template v-else>
